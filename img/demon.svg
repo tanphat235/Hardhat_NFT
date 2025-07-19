@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g fill="none" stroke="black" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 400 Q80 360 100 320 Q120 280 100 240 Q80 200 100 160 Q140 100 200 100 Q260 100 300 160 Q340 220 300 280 Q280 320 300 360 Q320 400 300 440 Q280 480 240 480 Q200 480 180 440 Q160 400 180 360 Q200 320 180 280 Q160 240 180 200 Q200 160 240 160 Q280 160 300 200 Q320 240 300 280" />
+    <path d="M220 100 Q210 80 220 60 Q230 40 250 40 Q270 40 280 60 Q290 80 280 100" />
+    <path d="M200 100 Q190 80 200 60" />
+    <path d="M260 100 Q270 80 260 60" />
+    <path d="M150 160 Q130 140 140 120" />
+    <path d="M170 200 Q150 180 160 160" />
+    <path d="M180 240 Q160 220 170 200" />
+    <path d="M190 280 Q170 260 180 240" />
+    <path d="M210 320 Q190 300 200 280" />
+    <path d="M230 360 Q210 340 220 320" />
+    <path d="M250 400 Q230 380 240 360" />
+    <path d="M270 440 Q250 420 260 400" />
+    <circle cx="220" cy="220" r="10" fill="black" />
+    <circle cx="280" cy="220" r="10" fill="black" />
+  </g>
+</svg>
