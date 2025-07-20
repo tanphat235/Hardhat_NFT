@@ -26,6 +26,9 @@ import packgage
 - yarn add fs (use fs for reading svg file)
 - yarn add @nomicfoundation/hardhat-ethers (to import hardhat ethers)
 - yarn add ethers (to working with ethers)
+- yarn add dotenv
+- yarn add --dev @nomiclabs/hardhat-etherscan
+- yarn add @chainlink/contracts
 
 create SVG and convert to URI data - the type to deploy to blockchain (svgToImageURI)
 Deploy SVGNFT.sol to blockchain
@@ -52,3 +55,9 @@ Get the instance of smart contract to create a NFT
 
 when run "npx hardhat deploy". it will run all file in this folder
 
+Use Chainlink VRF to generate random number. Because the random method onchain need to be deterministic. nobody can cheat on that. Using this for game blockchain like gamble, lottery, NFT mining...
+
+function fullfillRandomness(bytes32 requestId, uint256 randomNumber) internal override
+internal is only VRF can call this function. and override will be override this function to said this is the real function eventhough anyone create another function similar like that.
+
+Learn how to mapping variables type

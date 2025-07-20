@@ -8,6 +8,9 @@ const networkConfig = {
     4: {
         name: "rinkeby"
     },
+    11155111: {
+        name: "sepolia"
+    },
 }
 
 module.exports = {
