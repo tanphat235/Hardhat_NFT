@@ -78,7 +78,7 @@ module.exports = async ({
                 break;
             }
         } catch (e) {
-            // log không phải event của contract này, bỏ qua
+            pass
         }
     }
     if (!requestedEvent) {

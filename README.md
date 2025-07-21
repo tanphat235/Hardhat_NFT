@@ -62,4 +62,4 @@ internal is only VRF can call this function. and override will be override this 
 
 Learn how to mapping variables type
 
-Mock LinkToken and VRF to test in local network
+Mock LinkToken and VRF V1 to test in local network ( On sepolia V1 no longer used. Update to VRF v2)
