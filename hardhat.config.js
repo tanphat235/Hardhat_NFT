@@ -30,6 +30,15 @@ module.exports = {
       }, 
       chainId: 11155111, // Sepolia's chain ID
       saveDeployments: true, // Save deployments to the deployments folder
+    },
+    polygon: {
+      name: "polygon",
+      url: "https://polygon.drpc.org",
+      accounts: {
+        mnemonic: MNEMONIC
+      },
+      chainId: 137, // Polygon's chain ID
+      saveDeployments: true, // Save deployments to the deployments folder
     }
   },
   etherscan: {

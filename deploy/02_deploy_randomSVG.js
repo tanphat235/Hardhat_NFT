@@ -64,7 +64,7 @@ module.exports = async ({
     // create a random SVG NFT
     const randomSVGContract = await ethers.getContractAt("RandomSVG", randomSVG.address);
     const randomSVGContractWithSigner = new ethers.Contract(randomSVG.address, randomSVGContract.interface, signer);
-    let create_tx = await randomSVGContractWithSigner.create({gaslimit: 300000});
+    let create_tx = await randomSVGContractWithSigner.create({gaslimit: 300000, value: "100000000000000000"});
     let receipt = await create_tx.wait(1);
 
     // Copilot fixed
@@ -105,7 +105,7 @@ module.exports = async ({
             randomSVG.address);
         await vrf_tx.wait(1);
         log("Now let's finish the mint!");
-        let finish_tx = await randomSVGContractWithSigner.finishMint(tokenId, {gasLimit: 2000000});
+        let finish_tx = await randomSVGContractWithSigner.finishMint(tokenId, {gasLimit: 2000000, gasPrice: 20000000000}); // 20 gwei
         await finish_tx.wait(1);
         log(`You can view your tokenURI here: ${await randomSVGContractWithSigner.tokenURI(tokenId)}`);
     }

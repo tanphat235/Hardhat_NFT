@@ -10,11 +10,13 @@ contract RandomSVG is ERC721URIStorage, VRFConsumerBase {
     bytes32 public keyHash;
     uint256 public fee;
     uint256 public tokenCounter; // counter for the number of tokens minted
+    address payable public owner; // owner of the contract
     
     // SVG parameters
     uint256 public maxNumberOfPaths;
     uint256 public maxNumberOfPathsCommands;
     uint256 public size;
+    uint256 public price; // price for minting an NFT
     string[] public pathCommands;
     string[] public colors;
 
@@ -33,6 +35,8 @@ contract RandomSVG is ERC721URIStorage, VRFConsumerBase {
             fee = _fee; // set the fee for Chainlink VRF
             keyHash = _keyHash; // set the key hash for Chainlink VRF
             tokenCounter = 0; // initialize the token counter
+            price = 100000000000000000; // set the price for minting an NFT (0.1ETH)
+            owner = address payable(msg.sender); // set the owner of the contract
 
             maxNumberOfPaths = 10; // set the maximum number of paths for the SVG
             maxNumberOfPathsCommands = 5;
@@ -41,7 +45,20 @@ contract RandomSVG is ERC721URIStorage, VRFConsumerBase {
             colors = ["red", "blue", "green", "yellow", "black", "white"]; // define the colors for the SVG
     }
 
-    function create() public returns (bytes32 requestId) {
+    modifier onlyOwner() {
+        require(msg.sender == owner(), "Only owner can call this function");
+        _;
+    }
+    function withdraw() public payable onlyOwner(){
+        owner.transfer(address(this).balance); // withdraw the balance of the contract to the owner
+    }
+
+    function setPrice(uint256 _price) public onlyOwner {
+        price = _price; // set the price for minting an NFT
+    }
+
+    function create() public payable returns (bytes32 requestId) {
+        require(msg.value >= price, "Not enough ETH sent"); // check if the sender has sent enough LINK
         requestId = requestRandomness(keyHash, fee); // request a random number from Chainlink VRF
         requestIDToSender[requestId] = msg.sender; // map the request ID to the sender address
         uint256 tokenId = tokenCounter;

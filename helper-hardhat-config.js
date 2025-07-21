@@ -18,6 +18,13 @@ const networkConfig = {
         fee: "100000000000000000" // Default fee for Sepolia
     
     },
+    137: {
+        name: "polygon",
+        linkToken: "0xb0897686c545045aFc77CF20eC7A532E3120E0F1", // Polygon's LINK token address
+        vrfCoordinator: "0xec0Ed46f36576541C75739E915ADbCb3DE24bD77", // Polygon's VRF Coordinator address
+        keyHash: "0x192234a5cda4cc07c0b66dfbcfbb785341cc790edc50032e842667dbb506cada", // Default keyHash for Polygon
+        fee: "100000000000000" // Default fee for Polygon 0.0001
+    }
 }
 
 module.exports = {
