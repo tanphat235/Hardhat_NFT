@@ -61,3 +61,5 @@ function fullfillRandomness(bytes32 requestId, uint256 randomNumber) internal ov
 internal is only VRF can call this function. and override will be override this function to said this is the real function eventhough anyone create another function similar like that.
 
 Learn how to mapping variables type
+
+Mock LinkToken and VRF to test in local network

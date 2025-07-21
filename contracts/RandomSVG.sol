@@ -95,7 +95,7 @@ contract RandomSVG is ERC721URIStorage, VRFConsumerBase {
         pathSvg = "<path d='"; // start the path SVG string
         for (uint256 i = 0; i < numberOfPaths; i++) {
             uint256 newRNG = uint256(keccak256(abi.encode(_randomNumber, size + i))); // generate a new random number for each path command
-            string memory pathCommand = genetePathCommand(newRNG);
+            string memory pathCommand = generatePathCommand(newRNG);
             pathSvg = string(abi.encodePacked(pathSvg, pathCommand)); // concatenate the path command to the path SVG
         }
         string memory color = colors[_randomNumber % colors.length]; // select a random color from the colors array
@@ -103,7 +103,7 @@ contract RandomSVG is ERC721URIStorage, VRFConsumerBase {
     
     }
 
-    function genetePathCommand(uint256 _randomNumber) public view returns (string memory pathCommand) {
+    function generatePathCommand(uint256 _randomNumber) public view returns (string memory pathCommand) {
         pathCommand = pathCommands[_randomNumber % pathCommands.length]; // select a random path command from the pathCommands array
         uint256 parameterOne = uint256(keccak256(abi.encode(_randomNumber, size * 2))) % size; // generate a random parameter for the path command
         uint256 parameterTwo = uint256(keccak256(abi.encode(_randomNumber, size * 3))) % size; // generate a random parameter for the path command

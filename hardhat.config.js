@@ -1,3 +1,5 @@
+const { version } = require("os");
+
 require("@nomicfoundation/hardhat-ethers");
 require("hardhat-deploy");
 require("@nomiclabs/hardhat-etherscan");
@@ -33,7 +35,15 @@ module.exports = {
   etherscan: {
     apiKey: ETHERSCAN_API_KEY // Replace with your Etherscan API key
   },
-  solidity: "0.8.28",
+  solidity: {
+    compilers: [
+      {version: "0.8.0"},
+      {version: "0.4.24"}, 
+      {version: "0.6.6"}, 
+      {version: "0.7.0"},
+      {version: "0.8.20"}
+    ]
+  },
   namedAccounts: {
     deployer: {
       default: 0, // Here, 0 is the index of the account in the local Hardhat network
